@@ -1,0 +1,18 @@
+{
+  "appTitle": "Fest Outdoor",
+  "person": "Hosté",
+  "favorite": "Oblíbení",
+  "settings": "Nastavení",
+  "emailLabel": "Email",
+  "emailRequired": "Email je povinný",
+  "passwordLabel": "Heslo",
+  "passwordRequired": "Heslo je povinné",
+  "loginButton": "Přihlásit",
+  "tickets": "Vstupenky",
+  "barcode_data": "Data čárového kódu",
+  "barcodes_found": "Nalezeno čárových kódů: {count}",
+  "barcode": "Čárový kód: {barcodeValue}",
+  "codeLabel": "Kód",
+  "codeRequired": "Kód je povinný",
+  "codeManually": "Ručně zadat kód"
+}

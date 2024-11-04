@@ -1,0 +1,18 @@
+{
+  "appTitle": "Fest Outdoor",
+  "person": "Gośćie",
+  "favorite": "Ulubione",
+  "settings": "Ustawienia",
+  "emailLabel": "Email",
+  "emailRequired": "Email jest wymagany",
+  "passwordLabel": "Hasło",
+  "passwordRequired": "Hasło jest wymagane",
+  "loginButton": "Zaloguj",
+  "tickets": "Bilety",
+  "barcode_data": "Dane kodu kreskowego",
+  "barcodes_found": "Znalezione kody kreskowe: {count}",
+  "barcode": "Kod kreskowy: {barcodeValue}",
+  "codeLabel": "Kod",
+  "codeRequired": "Kod jest wymagany",
+  "codeManually": "Wprowadź kod ręcznie"
+}
