@@ -57,4 +57,13 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get codeManually => 'Wprowadź kod ręcznie';
+
+  @override
+  String get goToTicketView => 'Kontrola biletów';
+
+  @override
+  String get confirmTicket => 'Potwierdź bilet';
+
+  @override
+  String get logout => 'Wyloguj';
 }

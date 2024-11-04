@@ -1,6 +1,5 @@
 import 'package:fest_outdoor/localization/app_localizations.dart';
 import 'package:fest_outdoor/providers/token_provider.dart';
-import 'package:fest_outdoor/views/ticket_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -66,8 +65,6 @@ class _LoginFormState extends ConsumerState<LoginForm> {
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () async {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const TicketView()));
                 if (_formKey.currentState!.validate()) {
                   ref
                       .read(tokenProvider.notifier)

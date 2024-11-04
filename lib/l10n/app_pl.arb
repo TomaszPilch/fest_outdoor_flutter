@@ -14,5 +14,8 @@
   "barcode": "Kod kreskowy: {barcodeValue}",
   "codeLabel": "Kod",
   "codeRequired": "Kod jest wymagany",
-  "codeManually": "Wprowadź kod ręcznie"
+  "codeManually": "Wprowadź kod ręcznie",
+  "goToTicketView": "Kontrola biletów",
+  "confirmTicket": "Potwierdź bilet",
+  "logout": "Wyloguj"
 }

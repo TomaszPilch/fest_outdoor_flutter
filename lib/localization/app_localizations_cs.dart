@@ -57,4 +57,13 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get codeManually => 'Ručně zadat kód';
+
+  @override
+  String get goToTicketView => 'Kontrola vstupenek';
+
+  @override
+  String get confirmTicket => 'Potvrdit vstupenku';
+
+  @override
+  String get logout => 'Odhlásit';
 }

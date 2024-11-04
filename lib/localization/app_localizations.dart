@@ -190,6 +190,24 @@ abstract class AppLocalizations {
   /// In cs, this message translates to:
   /// **'Ručně zadat kód'**
   String get codeManually;
+
+  /// No description provided for @goToTicketView.
+  ///
+  /// In cs, this message translates to:
+  /// **'Kontrola vstupenek'**
+  String get goToTicketView;
+
+  /// No description provided for @confirmTicket.
+  ///
+  /// In cs, this message translates to:
+  /// **'Potvrdit vstupenku'**
+  String get confirmTicket;
+
+  /// No description provided for @logout.
+  ///
+  /// In cs, this message translates to:
+  /// **'Odhlásit'**
+  String get logout;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

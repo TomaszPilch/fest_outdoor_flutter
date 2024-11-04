@@ -14,5 +14,8 @@
   "barcode": "Čárový kód: {barcodeValue}",
   "codeLabel": "Kód",
   "codeRequired": "Kód je povinný",
-  "codeManually": "Ručně zadat kód"
+  "codeManually": "Ručně zadat kód",
+  "goToTicketView": "Kontrola vstupenek",
+  "confirmTicket": "Potvrdit vstupenku",
+  "logout": "Odhlásit"
 }
