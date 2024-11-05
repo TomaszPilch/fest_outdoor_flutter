@@ -72,4 +72,28 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get noGuestsFound => 'Brak gości';
+
+  @override
+  String get info => 'Informacje';
+
+  @override
+  String get feedback => 'Opinie';
+
+  @override
+  String get infoTitle => 'Informacje';
+
+  @override
+  String get nameLabel => 'Imię';
+
+  @override
+  String get nameIsRequired => 'Imię jest wymagane';
+
+  @override
+  String get contentLabel => 'Ocena';
+
+  @override
+  String get contentIsRequired => 'Ocena jest wymagana';
+
+  @override
+  String get sendButton => 'Wyślij';
 }

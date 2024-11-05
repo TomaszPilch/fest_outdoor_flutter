@@ -27,9 +27,14 @@ class BottomNavigation extends StatelessWidget {
             selectedIcon: const Icon(Icons.favorite),
           ),
           NavigationDestination(
-            icon: const Icon(Icons.settings_applications_outlined),
-            selectedIcon: const Icon(Icons.settings),
-            label: AppLocalizations.of(context)!.settings,
+            icon: const Icon(Icons.info_outline),
+            selectedIcon: const Icon(Icons.info),
+            label: AppLocalizations.of(context)!.info,
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.feedback_outlined),
+            selectedIcon: const Icon(Icons.feedback),
+            label: AppLocalizations.of(context)!.feedback,
           ),
         ]);
   }

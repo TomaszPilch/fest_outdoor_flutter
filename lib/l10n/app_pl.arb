@@ -19,5 +19,13 @@
   "confirmTicket": "Potwierdź bilet",
   "logout": "Wyloguj",
   "noFavoritesFound": "Zaznacz gości, których chcesz widzieć",
-  "noGuestsFound": "Brak gości"
+  "noGuestsFound": "Brak gości",
+  "info": "Informacje",
+  "feedback": "Opinie",
+  "infoTitle": "Informacje",
+  "nameLabel": "Imię",
+  "nameIsRequired": "Imię jest wymagane",
+  "contentLabel": "Ocena",
+  "contentIsRequired": "Ocena jest wymagana",
+  "sendButton": "Wyślij"
 }

@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'guests_provider.dart';
+part of 'info_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$guestsHash() => r'a851e3b6da6e4dfbf1a3626bc1532e1508bf8414';
+String _$infoHash() => r'c8954f4ac0b40d3ca999f7c69368a75c3b499c5c';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,27 +29,27 @@ class _SystemHash {
   }
 }
 
-/// See also [guests].
-@ProviderFor(guests)
-const guestsProvider = GuestsFamily();
+/// See also [info].
+@ProviderFor(info)
+const infoProvider = InfoFamily();
 
-/// See also [guests].
-class GuestsFamily extends Family<AsyncValue<List<Guest>>> {
-  /// See also [guests].
-  const GuestsFamily();
+/// See also [info].
+class InfoFamily extends Family<AsyncValue<List<dynamic>>> {
+  /// See also [info].
+  const InfoFamily();
 
-  /// See also [guests].
-  GuestsProvider call(
+  /// See also [info].
+  InfoProvider call(
     String locale,
   ) {
-    return GuestsProvider(
+    return InfoProvider(
       locale,
     );
   }
 
   @override
-  GuestsProvider getProviderOverride(
-    covariant GuestsProvider provider,
+  InfoProvider getProviderOverride(
+    covariant InfoProvider provider,
   ) {
     return call(
       provider.locale,
@@ -68,31 +68,29 @@ class GuestsFamily extends Family<AsyncValue<List<Guest>>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'guestsProvider';
+  String? get name => r'infoProvider';
 }
 
-/// See also [guests].
-class GuestsProvider extends AutoDisposeFutureProvider<List<Guest>> {
-  /// See also [guests].
-  GuestsProvider(
+/// See also [info].
+class InfoProvider extends AutoDisposeFutureProvider<List<dynamic>> {
+  /// See also [info].
+  InfoProvider(
     String locale,
   ) : this._internal(
-          (ref) => guests(
-            ref as GuestsRef,
+          (ref) => info(
+            ref as InfoRef,
             locale,
           ),
-          from: guestsProvider,
-          name: r'guestsProvider',
+          from: infoProvider,
+          name: r'infoProvider',
           debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$guestsHash,
-          dependencies: GuestsFamily._dependencies,
-          allTransitiveDependencies: GuestsFamily._allTransitiveDependencies,
+              const bool.fromEnvironment('dart.vm.product') ? null : _$infoHash,
+          dependencies: InfoFamily._dependencies,
+          allTransitiveDependencies: InfoFamily._allTransitiveDependencies,
           locale: locale,
         );
 
-  GuestsProvider._internal(
+  InfoProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -106,12 +104,12 @@ class GuestsProvider extends AutoDisposeFutureProvider<List<Guest>> {
 
   @override
   Override overrideWith(
-    FutureOr<List<Guest>> Function(GuestsRef provider) create,
+    FutureOr<List<dynamic>> Function(InfoRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: GuestsProvider._internal(
-        (ref) => create(ref as GuestsRef),
+      override: InfoProvider._internal(
+        (ref) => create(ref as InfoRef),
         from: from,
         name: null,
         dependencies: null,
@@ -123,13 +121,13 @@ class GuestsProvider extends AutoDisposeFutureProvider<List<Guest>> {
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<Guest>> createElement() {
-    return _GuestsProviderElement(this);
+  AutoDisposeFutureProviderElement<List<dynamic>> createElement() {
+    return _InfoProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is GuestsProvider && other.locale == locale;
+    return other is InfoProvider && other.locale == locale;
   }
 
   @override
@@ -143,17 +141,17 @@ class GuestsProvider extends AutoDisposeFutureProvider<List<Guest>> {
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin GuestsRef on AutoDisposeFutureProviderRef<List<Guest>> {
+mixin InfoRef on AutoDisposeFutureProviderRef<List<dynamic>> {
   /// The parameter `locale` of this provider.
   String get locale;
 }
 
-class _GuestsProviderElement
-    extends AutoDisposeFutureProviderElement<List<Guest>> with GuestsRef {
-  _GuestsProviderElement(super.provider);
+class _InfoProviderElement
+    extends AutoDisposeFutureProviderElement<List<dynamic>> with InfoRef {
+  _InfoProviderElement(super.provider);
 
   @override
-  String get locale => (origin as GuestsProvider).locale;
+  String get locale => (origin as InfoProvider).locale;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

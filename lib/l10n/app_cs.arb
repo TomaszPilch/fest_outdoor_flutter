@@ -19,5 +19,13 @@
   "confirmTicket": "Potvrdit vstupenku",
   "logout": "Odhlásit",
   "noFavoritesFound": "Označte hosty, které chcete vidět",
-  "noGuestsFound": "Žádní hosté"
+  "noGuestsFound": "Žádní hosté",
+  "info": "Informace",
+  "feedback": "Zpětná vazba",
+  "infoTitle": "Informace",
+  "nameLabel": "Jméno",
+  "nameIsRequired": "Jméno je povinné",
+  "contentLabel": "Hodnocení",
+  "contentIsRequired": "Hodnocení je povinné",
+  "sendButton": "Odeslat"
 }

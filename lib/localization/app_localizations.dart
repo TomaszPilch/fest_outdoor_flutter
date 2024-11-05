@@ -220,6 +220,54 @@ abstract class AppLocalizations {
   /// In cs, this message translates to:
   /// **'Žádní hosté'**
   String get noGuestsFound;
+
+  /// No description provided for @info.
+  ///
+  /// In cs, this message translates to:
+  /// **'Informace'**
+  String get info;
+
+  /// No description provided for @feedback.
+  ///
+  /// In cs, this message translates to:
+  /// **'Zpětná vazba'**
+  String get feedback;
+
+  /// No description provided for @infoTitle.
+  ///
+  /// In cs, this message translates to:
+  /// **'Informace'**
+  String get infoTitle;
+
+  /// No description provided for @nameLabel.
+  ///
+  /// In cs, this message translates to:
+  /// **'Jméno'**
+  String get nameLabel;
+
+  /// No description provided for @nameIsRequired.
+  ///
+  /// In cs, this message translates to:
+  /// **'Jméno je povinné'**
+  String get nameIsRequired;
+
+  /// No description provided for @contentLabel.
+  ///
+  /// In cs, this message translates to:
+  /// **'Hodnocení'**
+  String get contentLabel;
+
+  /// No description provided for @contentIsRequired.
+  ///
+  /// In cs, this message translates to:
+  /// **'Hodnocení je povinné'**
+  String get contentIsRequired;
+
+  /// No description provided for @sendButton.
+  ///
+  /// In cs, this message translates to:
+  /// **'Odeslat'**
+  String get sendButton;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

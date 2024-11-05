@@ -8,11 +8,15 @@ class Paragraph extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: content.map((e) {
         if (e['text'] == null) {
           return const SizedBox.shrink();
         }
-        return Text(e['text']);
+        return Text(
+          e['text'],
+          textAlign: TextAlign.justify,
+        );
       }).toList(),
     );
   }

@@ -72,4 +72,28 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get noGuestsFound => 'Žádní hosté';
+
+  @override
+  String get info => 'Informace';
+
+  @override
+  String get feedback => 'Zpětná vazba';
+
+  @override
+  String get infoTitle => 'Informace';
+
+  @override
+  String get nameLabel => 'Jméno';
+
+  @override
+  String get nameIsRequired => 'Jméno je povinné';
+
+  @override
+  String get contentLabel => 'Hodnocení';
+
+  @override
+  String get contentIsRequired => 'Hodnocení je povinné';
+
+  @override
+  String get sendButton => 'Odeslat';
 }

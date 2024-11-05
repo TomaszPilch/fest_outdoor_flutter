@@ -10,7 +10,7 @@ final dio = Dio();
 @riverpod
 Future<List<Guest>> guests(Ref ref, String locale) async {
   final response = await dio.get(
-      'https://cms.pzkogrodek.cz/api/fest-outdoor-guests?populate=image&locale=$locale&filters[start][\$gt]=2024-11-21&filters[end][\$lt]=2024-11-30');
+      'https://cms.pzkogrodek.cz/api/fest-outdoor-guests?populate=image&locale=$locale&filters[start][\$gt]=2024-11-21&filters[end][\$lt]=2024-11-30&sort=start:ASC');
 
   return (response.data['data'] as List).map<Guest>((e) {
     if (e['attributes']?['image']?['data']?['attributes']?['formats']

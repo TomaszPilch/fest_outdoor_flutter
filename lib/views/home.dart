@@ -1,5 +1,7 @@
 import 'package:fest_outdoor/utils/general.dart';
+import 'package:fest_outdoor/views/feedback_view.dart';
 import 'package:fest_outdoor/views/guest_view.dart';
+import 'package:fest_outdoor/views/info_view.dart';
 import 'package:fest_outdoor/views/settings_view.dart';
 import 'package:fest_outdoor/widgets/bottom_navigation.dart';
 import 'package:fest_outdoor/widgets/day_picker.dart';
@@ -28,6 +30,28 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     super.dispose();
   }
 
+  Widget renderBody() {
+    switch (selectedIndex) {
+      case 0:
+      case 1:
+        return TabBarView(
+          controller: _tabController,
+          children: [
+            GuestView(
+                day: conferenceDays[0], onlyFavorites: selectedIndex == 1),
+            GuestView(
+                day: conferenceDays[1], onlyFavorites: selectedIndex == 1),
+          ],
+        );
+      case 2:
+        return const InfoView();
+      case 3:
+        return const FeedbackView();
+      default:
+        return const Placeholder();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +64,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                   TextStyle(color: Theme.of(context).colorScheme.onSecondary),
             ),
           ),
-          bottom: selectedIndex != 2
+          bottom: selectedIndex < 2
               ? PreferredSize(
                   preferredSize: const Size.fromHeight(60),
                   child: Center(
@@ -50,19 +74,16 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 )
               : null,
         ),
-        body: selectedIndex == 2
-            ? const SettingsView()
-            : TabBarView(
-                controller: _tabController,
-                children: [
-                  GuestView(
-                      day: conferenceDays[0],
-                      onlyFavorites: selectedIndex == 1),
-                  GuestView(
-                      day: conferenceDays[1],
-                      onlyFavorites: selectedIndex == 1),
-                ],
-              ),
+        body: renderBody(),
+        floatingActionButton: selectedIndex == 3
+            ? FloatingActionButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const SettingsView()));
+                },
+                child: const Icon(Icons.settings_outlined),
+              )
+            : null,
         bottomNavigationBar: BottomNavigation(
           selectedIndex: selectedIndex,
           onDestinationSelected: (int index) {
