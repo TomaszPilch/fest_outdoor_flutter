@@ -96,4 +96,10 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get sendButton => 'Wyślij';
+
+  @override
+  String get feedbackTitle => 'Opinie na temat festiwalu';
+
+  @override
+  String get thankYouForFeedback => 'Dziękujemy za opinię';
 }

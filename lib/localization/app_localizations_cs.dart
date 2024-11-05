@@ -96,4 +96,10 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get sendButton => 'Odeslat';
+
+  @override
+  String get feedbackTitle => 'Zpětná vazba na festival';
+
+  @override
+  String get thankYouForFeedback => 'Děkujeme za zpětnou vazbu';
 }

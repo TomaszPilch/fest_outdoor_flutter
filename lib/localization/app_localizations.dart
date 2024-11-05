@@ -268,6 +268,18 @@ abstract class AppLocalizations {
   /// In cs, this message translates to:
   /// **'Odeslat'**
   String get sendButton;
+
+  /// No description provided for @feedbackTitle.
+  ///
+  /// In cs, this message translates to:
+  /// **'Zpětná vazba na festival'**
+  String get feedbackTitle;
+
+  /// No description provided for @thankYouForFeedback.
+  ///
+  /// In cs, this message translates to:
+  /// **'Děkujeme za zpětnou vazbu'**
+  String get thankYouForFeedback;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

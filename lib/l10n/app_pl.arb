@@ -27,5 +27,7 @@
   "nameIsRequired": "Imię jest wymagane",
   "contentLabel": "Ocena",
   "contentIsRequired": "Ocena jest wymagana",
-  "sendButton": "Wyślij"
+  "sendButton": "Wyślij",
+  "feedbackTitle": "Opinie na temat festiwalu",
+  "thankYouForFeedback": "Dziękujemy za opinię"
 }

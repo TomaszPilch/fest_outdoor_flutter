@@ -1,3 +1,4 @@
+import 'package:fest_outdoor/localization/app_localizations.dart';
 import 'package:fest_outdoor/widgets/feedback_form.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ class FeedbackView extends StatelessWidget {
       children: [
         Center(
           child: Text(
-            'Feedback',
+            AppLocalizations.of(context)!.feedbackTitle,
             style: Theme.of(context).textTheme.titleLarge,
           ),
         ),

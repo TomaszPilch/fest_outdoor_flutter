@@ -27,5 +27,7 @@
   "nameIsRequired": "Jméno je povinné",
   "contentLabel": "Hodnocení",
   "contentIsRequired": "Hodnocení je povinné",
-  "sendButton": "Odeslat"
+  "sendButton": "Odeslat",
+  "feedbackTitle": "Zpětná vazba na festival",
+  "thankYouForFeedback": "Děkujeme za zpětnou vazbu"
 }
