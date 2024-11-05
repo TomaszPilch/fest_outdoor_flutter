@@ -17,5 +17,7 @@
   "codeManually": "Wprowadź kod ręcznie",
   "goToTicketView": "Kontrola biletów",
   "confirmTicket": "Potwierdź bilet",
-  "logout": "Wyloguj"
+  "logout": "Wyloguj",
+  "noFavoritesFound": "Zaznacz gości, których chcesz widzieć",
+  "noGuestsFound": "Brak gości"
 }

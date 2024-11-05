@@ -66,4 +66,10 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get logout => 'Odhlásit';
+
+  @override
+  String get noFavoritesFound => 'Označte hosty, které chcete vidět';
+
+  @override
+  String get noGuestsFound => 'Žádní hosté';
 }

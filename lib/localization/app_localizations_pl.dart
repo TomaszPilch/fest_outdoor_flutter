@@ -66,4 +66,10 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get logout => 'Wyloguj';
+
+  @override
+  String get noFavoritesFound => 'Zaznacz gości, których chcesz widzieć';
+
+  @override
+  String get noGuestsFound => 'Brak gości';
 }

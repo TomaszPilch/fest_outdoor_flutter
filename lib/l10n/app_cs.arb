@@ -17,5 +17,7 @@
   "codeManually": "Ručně zadat kód",
   "goToTicketView": "Kontrola vstupenek",
   "confirmTicket": "Potvrdit vstupenku",
-  "logout": "Odhlásit"
+  "logout": "Odhlásit",
+  "noFavoritesFound": "Označte hosty, které chcete vidět",
+  "noGuestsFound": "Žádní hosté"
 }

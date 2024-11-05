@@ -208,6 +208,18 @@ abstract class AppLocalizations {
   /// In cs, this message translates to:
   /// **'Odhlásit'**
   String get logout;
+
+  /// No description provided for @noFavoritesFound.
+  ///
+  /// In cs, this message translates to:
+  /// **'Označte hosty, které chcete vidět'**
+  String get noFavoritesFound;
+
+  /// No description provided for @noGuestsFound.
+  ///
+  /// In cs, this message translates to:
+  /// **'Žádní hosté'**
+  String get noGuestsFound;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
