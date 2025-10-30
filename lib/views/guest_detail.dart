@@ -16,7 +16,7 @@ class GuestDetail extends StatelessWidget {
         foregroundColor: Theme.of(context).colorScheme.onSecondary,
         backgroundColor: Theme.of(context).colorScheme.secondary,
         title: Text(
-          guest.attributes.title,
+          guest.title,
         ),
       ),
       body: ListView(
@@ -27,7 +27,7 @@ class GuestDetail extends StatelessWidget {
             height: 20,
           ),
           Text(
-            guest.attributes.title,
+            guest.title,
             style: Theme.of(context).textTheme.titleLarge,
           ),
           const SizedBox(
@@ -37,7 +37,7 @@ class GuestDetail extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          ContentBlock(content: guest.attributes.content),
+          ContentBlock(content: guest.content),
         ],
       ),
     );

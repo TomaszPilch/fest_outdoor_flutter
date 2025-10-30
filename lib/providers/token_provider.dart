@@ -19,7 +19,7 @@ class Token extends _$Token {
 
   Future<void> login(String email, String password) async {
     final response =
-        await dio.post('https://cms.pzkogrodek.cz/api/auth/local', data: {
+        await dio.post('https://cms-new.pzkogrodek.cz/api/auth/local', data: {
       "identifier": email,
       "password": password,
     });

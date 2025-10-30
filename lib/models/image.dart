@@ -4,7 +4,7 @@ part 'image.freezed.dart';
 part 'image.g.dart';
 
 @freezed
-class Image with _$Image {
+abstract class Image with _$Image {
   const factory Image({
     required String name,
     required String url,

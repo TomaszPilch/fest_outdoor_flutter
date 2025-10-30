@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,104 +9,56 @@ part of 'ticket.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Ticket _$TicketFromJson(Map<String, dynamic> json) {
-  return _Ticket.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Ticket {
-  int get id => throw _privateConstructorUsedError;
-  String get code => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String? get email => throw _privateConstructorUsedError;
-  String? get person => throw _privateConstructorUsedError;
-  List<TicketLog>? get logs => throw _privateConstructorUsedError;
-
-  /// Serializes this Ticket to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  int get id;
+  String get code;
+  String get name;
+  String? get email;
+  String? get person;
+  List<TicketLog>? get logs;
 
   /// Create a copy of Ticket
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $TicketCopyWith<Ticket> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $TicketCopyWith<$Res> {
-  factory $TicketCopyWith(Ticket value, $Res Function(Ticket) then) =
-      _$TicketCopyWithImpl<$Res, Ticket>;
-  @useResult
-  $Res call(
-      {int id,
-      String code,
-      String name,
-      String? email,
-      String? person,
-      List<TicketLog>? logs});
-}
-
-/// @nodoc
-class _$TicketCopyWithImpl<$Res, $Val extends Ticket>
-    implements $TicketCopyWith<$Res> {
-  _$TicketCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Ticket
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $TicketCopyWith<Ticket> get copyWith =>
+      _$TicketCopyWithImpl<Ticket>(this as Ticket, _$identity);
+
+  /// Serializes this Ticket to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? id = null,
-    Object? code = null,
-    Object? name = null,
-    Object? email = freezed,
-    Object? person = freezed,
-    Object? logs = freezed,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      code: null == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      person: freezed == person
-          ? _value.person
-          : person // ignore: cast_nullable_to_non_nullable
-              as String?,
-      logs: freezed == logs
-          ? _value.logs
-          : logs // ignore: cast_nullable_to_non_nullable
-              as List<TicketLog>?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Ticket &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.code, code) || other.code == code) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.person, person) || other.person == person) &&
+            const DeepCollectionEquality().equals(other.logs, logs));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, code, name, email, person,
+      const DeepCollectionEquality().hash(logs));
+
+  @override
+  String toString() {
+    return 'Ticket(id: $id, code: $code, name: $name, email: $email, person: $person, logs: $logs)';
   }
 }
 
 /// @nodoc
-abstract class _$$TicketImplCopyWith<$Res> implements $TicketCopyWith<$Res> {
-  factory _$$TicketImplCopyWith(
-          _$TicketImpl value, $Res Function(_$TicketImpl) then) =
-      __$$TicketImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $TicketCopyWith<$Res> {
+  factory $TicketCopyWith(Ticket value, $Res Function(Ticket) _then) =
+      _$TicketCopyWithImpl;
   @useResult
   $Res call(
       {int id,
@@ -118,12 +70,11 @@ abstract class _$$TicketImplCopyWith<$Res> implements $TicketCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$TicketImplCopyWithImpl<$Res>
-    extends _$TicketCopyWithImpl<$Res, _$TicketImpl>
-    implements _$$TicketImplCopyWith<$Res> {
-  __$$TicketImplCopyWithImpl(
-      _$TicketImpl _value, $Res Function(_$TicketImpl) _then)
-      : super(_value, _then);
+class _$TicketCopyWithImpl<$Res> implements $TicketCopyWith<$Res> {
+  _$TicketCopyWithImpl(this._self, this._then);
+
+  final Ticket _self;
+  final $Res Function(Ticket) _then;
 
   /// Create a copy of Ticket
   /// with the given fields replaced by the non-null parameter values.
@@ -137,39 +88,205 @@ class __$$TicketImplCopyWithImpl<$Res>
     Object? person = freezed,
     Object? logs = freezed,
   }) {
-    return _then(_$TicketImpl(
+    return _then(_self.copyWith(
       id: null == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
       code: null == code
-          ? _value.code
+          ? _self.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       email: freezed == email
-          ? _value.email
+          ? _self.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
       person: freezed == person
-          ? _value.person
+          ? _self.person
           : person // ignore: cast_nullable_to_non_nullable
               as String?,
       logs: freezed == logs
-          ? _value._logs
+          ? _self.logs
           : logs // ignore: cast_nullable_to_non_nullable
               as List<TicketLog>?,
     ));
   }
 }
 
+/// Adds pattern-matching-related methods to [Ticket].
+extension TicketPatterns on Ticket {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_Ticket value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Ticket() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_Ticket value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Ticket():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_Ticket value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Ticket() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(int id, String code, String name, String? email,
+            String? person, List<TicketLog>? logs)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Ticket() when $default != null:
+        return $default(_that.id, _that.code, _that.name, _that.email,
+            _that.person, _that.logs);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(int id, String code, String name, String? email,
+            String? person, List<TicketLog>? logs)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Ticket():
+        return $default(_that.id, _that.code, _that.name, _that.email,
+            _that.person, _that.logs);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(int id, String code, String name, String? email,
+            String? person, List<TicketLog>? logs)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Ticket() when $default != null:
+        return $default(_that.id, _that.code, _that.name, _that.email,
+            _that.person, _that.logs);
+      case _:
+        return null;
+    }
+  }
+}
+
 /// @nodoc
 @JsonSerializable()
-class _$TicketImpl implements _Ticket {
-  const _$TicketImpl(
+class _Ticket implements Ticket {
+  const _Ticket(
       {required this.id,
       required this.code,
       required this.name,
@@ -177,9 +294,7 @@ class _$TicketImpl implements _Ticket {
       this.person,
       final List<TicketLog>? logs})
       : _logs = logs;
-
-  factory _$TicketImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TicketImplFromJson(json);
+  factory _Ticket.fromJson(Map<String, dynamic> json) => _$TicketFromJson(json);
 
   @override
   final int id;
@@ -201,16 +316,26 @@ class _$TicketImpl implements _Ticket {
     return EqualUnmodifiableListView(value);
   }
 
+  /// Create a copy of Ticket
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Ticket(id: $id, code: $code, name: $name, email: $email, person: $person, logs: $logs)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$TicketCopyWith<_Ticket> get copyWith =>
+      __$TicketCopyWithImpl<_Ticket>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$TicketToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TicketImpl &&
+            other is _Ticket &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.code, code) || other.code == code) &&
             (identical(other.name, name) || other.name == name) &&
@@ -224,50 +349,73 @@ class _$TicketImpl implements _Ticket {
   int get hashCode => Object.hash(runtimeType, id, code, name, email, person,
       const DeepCollectionEquality().hash(_logs));
 
-  /// Create a copy of Ticket
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$TicketImplCopyWith<_$TicketImpl> get copyWith =>
-      __$$TicketImplCopyWithImpl<_$TicketImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TicketImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Ticket(id: $id, code: $code, name: $name, email: $email, person: $person, logs: $logs)';
   }
 }
 
-abstract class _Ticket implements Ticket {
-  const factory _Ticket(
-      {required final int id,
-      required final String code,
-      required final String name,
-      final String? email,
-      final String? person,
-      final List<TicketLog>? logs}) = _$TicketImpl;
+/// @nodoc
+abstract mixin class _$TicketCopyWith<$Res> implements $TicketCopyWith<$Res> {
+  factory _$TicketCopyWith(_Ticket value, $Res Function(_Ticket) _then) =
+      __$TicketCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {int id,
+      String code,
+      String name,
+      String? email,
+      String? person,
+      List<TicketLog>? logs});
+}
 
-  factory _Ticket.fromJson(Map<String, dynamic> json) = _$TicketImpl.fromJson;
+/// @nodoc
+class __$TicketCopyWithImpl<$Res> implements _$TicketCopyWith<$Res> {
+  __$TicketCopyWithImpl(this._self, this._then);
 
-  @override
-  int get id;
-  @override
-  String get code;
-  @override
-  String get name;
-  @override
-  String? get email;
-  @override
-  String? get person;
-  @override
-  List<TicketLog>? get logs;
+  final _Ticket _self;
+  final $Res Function(_Ticket) _then;
 
   /// Create a copy of Ticket
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TicketImplCopyWith<_$TicketImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+    Object? code = null,
+    Object? name = null,
+    Object? email = freezed,
+    Object? person = freezed,
+    Object? logs = freezed,
+  }) {
+    return _then(_Ticket(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      code: null == code
+          ? _self.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: freezed == email
+          ? _self.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      person: freezed == person
+          ? _self.person
+          : person // ignore: cast_nullable_to_non_nullable
+              as String?,
+      logs: freezed == logs
+          ? _self._logs
+          : logs // ignore: cast_nullable_to_non_nullable
+              as List<TicketLog>?,
+    ));
+  }
 }
+
+// dart format on

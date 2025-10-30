@@ -59,7 +59,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           backgroundColor: Theme.of(context).colorScheme.secondary,
           title: Center(
             child: Text(
-              '🧗 Fest Outdoor 2024 🪂',
+              '🧗 Fest Outdoor 2025 🪂',
               style:
                   TextStyle(color: Theme.of(context).colorScheme.onSecondary),
             ),

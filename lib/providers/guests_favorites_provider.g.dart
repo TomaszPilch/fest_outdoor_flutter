@@ -6,21 +6,47 @@ part of 'guests_favorites_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
+@ProviderFor(GuestsFavorites)
+const guestsFavoritesProvider = GuestsFavoritesProvider._();
+
+final class GuestsFavoritesProvider
+    extends $AsyncNotifierProvider<GuestsFavorites, List<int>> {
+  const GuestsFavoritesProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'guestsFavoritesProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$guestsFavoritesHash();
+
+  @$internal
+  @override
+  GuestsFavorites create() => GuestsFavorites();
+}
+
 String _$guestsFavoritesHash() => r'b5dec07945461204ae799a0f73968830da2d7ac7';
 
-/// See also [GuestsFavorites].
-@ProviderFor(GuestsFavorites)
-final guestsFavoritesProvider =
-    AutoDisposeAsyncNotifierProvider<GuestsFavorites, List<int>>.internal(
-  GuestsFavorites.new,
-  name: r'guestsFavoritesProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$guestsFavoritesHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef _$GuestsFavorites = AutoDisposeAsyncNotifier<List<int>>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+abstract class _$GuestsFavorites extends $AsyncNotifier<List<int>> {
+  FutureOr<List<int>> build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build();
+    final ref = this.ref as $Ref<AsyncValue<List<int>>, List<int>>;
+    final element = ref.element as $ClassProviderElement<
+        AnyNotifier<AsyncValue<List<int>>, List<int>>,
+        AsyncValue<List<int>>,
+        Object?,
+        Object?>;
+    element.handleValue(ref, created);
+  }
+}

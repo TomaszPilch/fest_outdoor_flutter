@@ -6,20 +6,47 @@ part of 'feedback_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$feedbackHash() => r'4fd6a7978c6159573cf16d96b8b0e629913ba52d';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [Feedback].
 @ProviderFor(Feedback)
-final feedbackProvider =
-    AutoDisposeAsyncNotifierProvider<Feedback, List<String>>.internal(
-  Feedback.new,
-  name: r'feedbackProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$feedbackHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+const feedbackProvider = FeedbackProvider._();
 
-typedef _$Feedback = AutoDisposeAsyncNotifier<List<String>>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+final class FeedbackProvider
+    extends $AsyncNotifierProvider<Feedback, List<String>> {
+  const FeedbackProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'feedbackProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$feedbackHash();
+
+  @$internal
+  @override
+  Feedback create() => Feedback();
+}
+
+String _$feedbackHash() => r'efc004457bb72f13d45a239fc6a84e917a7457ca';
+
+abstract class _$Feedback extends $AsyncNotifier<List<String>> {
+  FutureOr<List<String>> build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build();
+    final ref = this.ref as $Ref<AsyncValue<List<String>>, List<String>>;
+    final element = ref.element as $ClassProviderElement<
+        AnyNotifier<AsyncValue<List<String>>, List<String>>,
+        AsyncValue<List<String>>,
+        Object?,
+        Object?>;
+    element.handleValue(ref, created);
+  }
+}

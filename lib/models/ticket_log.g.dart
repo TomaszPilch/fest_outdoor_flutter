@@ -6,14 +6,13 @@ part of 'ticket_log.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TicketLogImpl _$$TicketLogImplFromJson(Map<String, dynamic> json) =>
-    _$TicketLogImpl(
+_TicketLog _$TicketLogFromJson(Map<String, dynamic> json) => _TicketLog(
       id: (json['id'] as num).toInt(),
       code: json['code'] as String,
       scanTime: DateTime.parse(json['scanTime'] as String),
     );
 
-Map<String, dynamic> _$$TicketLogImplToJson(_$TicketLogImpl instance) =>
+Map<String, dynamic> _$TicketLogToJson(_TicketLog instance) =>
     <String, dynamic>{
       'id': instance.id,
       'code': instance.code,

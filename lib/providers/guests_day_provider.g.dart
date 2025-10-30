@@ -6,171 +6,98 @@ part of 'guests_day_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$guestsDayHash() => r'390dfcb8fe1a113cbf371310cb13daaecce6b446';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
-
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
-
-/// See also [guestsDay].
 @ProviderFor(guestsDay)
-const guestsDayProvider = GuestsDayFamily();
+const guestsDayProvider = GuestsDayFamily._();
 
-/// See also [guestsDay].
-class GuestsDayFamily extends Family<AsyncValue<List<Guest>>> {
-  /// See also [guestsDay].
-  const GuestsDayFamily();
-
-  /// See also [guestsDay].
-  GuestsDayProvider call(
-    DateTime day,
-    String locale,
-  ) {
-    return GuestsDayProvider(
-      day,
-      locale,
-    );
-  }
-
-  @override
-  GuestsDayProvider getProviderOverride(
-    covariant GuestsDayProvider provider,
-  ) {
-    return call(
-      provider.day,
-      provider.locale,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'guestsDayProvider';
-}
-
-/// See also [guestsDay].
-class GuestsDayProvider extends AutoDisposeFutureProvider<List<Guest>> {
-  /// See also [guestsDay].
-  GuestsDayProvider(
-    DateTime day,
-    String locale,
-  ) : this._internal(
-          (ref) => guestsDay(
-            ref as GuestsDayRef,
-            day,
-            locale,
-          ),
-          from: guestsDayProvider,
+final class GuestsDayProvider extends $FunctionalProvider<
+        AsyncValue<List<Guest>>, List<Guest>, FutureOr<List<Guest>>>
+    with $FutureModifier<List<Guest>>, $FutureProvider<List<Guest>> {
+  const GuestsDayProvider._(
+      {required GuestsDayFamily super.from,
+      required (
+        DateTime,
+        String,
+      )
+          super.argument})
+      : super(
+          retry: null,
           name: r'guestsDayProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$guestsDayHash,
-          dependencies: GuestsDayFamily._dependencies,
-          allTransitiveDependencies: GuestsDayFamily._allTransitiveDependencies,
-          day: day,
-          locale: locale,
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
         );
 
-  GuestsDayProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.day,
-    required this.locale,
-  }) : super.internal();
-
-  final DateTime day;
-  final String locale;
+  @override
+  String debugGetCreateSourceHash() => _$guestsDayHash();
 
   @override
-  Override overrideWith(
-    FutureOr<List<Guest>> Function(GuestsDayRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: GuestsDayProvider._internal(
-        (ref) => create(ref as GuestsDayRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        day: day,
-        locale: locale,
-      ),
-    );
+  String toString() {
+    return r'guestsDayProvider'
+        ''
+        '$argument';
   }
 
+  @$internal
   @override
-  AutoDisposeFutureProviderElement<List<Guest>> createElement() {
-    return _GuestsDayProviderElement(this);
+  $FutureProviderElement<List<Guest>> $createElement(
+          $ProviderPointer pointer) =>
+      $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<List<Guest>> create(Ref ref) {
+    final argument = this.argument as (
+      DateTime,
+      String,
+    );
+    return guestsDay(
+      ref,
+      argument.$1,
+      argument.$2,
+    );
   }
 
   @override
   bool operator ==(Object other) {
-    return other is GuestsDayProvider &&
-        other.day == day &&
-        other.locale == locale;
+    return other is GuestsDayProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, day.hashCode);
-    hash = _SystemHash.combine(hash, locale.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin GuestsDayRef on AutoDisposeFutureProviderRef<List<Guest>> {
-  /// The parameter `day` of this provider.
-  DateTime get day;
+String _$guestsDayHash() => r'390dfcb8fe1a113cbf371310cb13daaecce6b446';
 
-  /// The parameter `locale` of this provider.
-  String get locale;
-}
+final class GuestsDayFamily extends $Family
+    with
+        $FunctionalFamilyOverride<
+            FutureOr<List<Guest>>,
+            (
+              DateTime,
+              String,
+            )> {
+  const GuestsDayFamily._()
+      : super(
+          retry: null,
+          name: r'guestsDayProvider',
+          dependencies: null,
+          $allTransitiveDependencies: null,
+          isAutoDispose: true,
+        );
 
-class _GuestsDayProviderElement
-    extends AutoDisposeFutureProviderElement<List<Guest>> with GuestsDayRef {
-  _GuestsDayProviderElement(super.provider);
+  GuestsDayProvider call(
+    DateTime day,
+    String locale,
+  ) =>
+      GuestsDayProvider._(argument: (
+        day,
+        locale,
+      ), from: this);
 
   @override
-  DateTime get day => (origin as GuestsDayProvider).day;
-  @override
-  String get locale => (origin as GuestsDayProvider).locale;
+  String toString() => r'guestsDayProvider';
 }
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

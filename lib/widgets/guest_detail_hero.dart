@@ -8,7 +8,7 @@ class GuestDetailHero extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (guest.attributes.image == null) {
+    if (guest.image == null) {
       return const SizedBox.shrink();
     }
 
@@ -18,7 +18,7 @@ class GuestDetailHero extends StatelessWidget {
           child: CircleAvatar(
               radius: 100,
               backgroundImage: NetworkImage(
-                  'https://cms.pzkogrodek.cz${guest.attributes.image!.url}'))),
+                  'https://cms-new.pzkogrodek.cz${guest.image!.url}'))),
     );
   }
 }

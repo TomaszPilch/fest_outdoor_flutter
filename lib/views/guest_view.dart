@@ -59,10 +59,9 @@ class GuestView extends StatelessWidget {
                             leading: Hero(
                                 tag: "guest_photo_${guest.id}",
                                 child: CircleAvatar(
-                                  backgroundImage: guest.attributes.image !=
-                                          null
+                                  backgroundImage: guest.image != null
                                       ? NetworkImage(
-                                          'https://cms.pzkogrodek.cz${guest.attributes.image!.url}')
+                                          'https://cms-new.pzkogrodek.cz${guest.image!.url}')
                                       : null,
                                 )),
                             title: Column(
@@ -74,14 +73,14 @@ class GuestView extends StatelessWidget {
                                       Theme.of(context).colorScheme.primary,
                                   child: const Icon(Icons.schedule_outlined),
                                 ),
-                                Text(guest.attributes.title,
+                                Text(guest.title,
                                     style: const TextStyle(
                                         fontWeight: FontWeight.bold)),
                               ],
                             ),
                             subtitle: Padding(
                               padding: const EdgeInsets.only(top: 8),
-                              child: Text(guest.attributes.description),
+                              child: Text(guest.description),
                             ),
                             trailing: IconButton(
                                 onPressed: () {

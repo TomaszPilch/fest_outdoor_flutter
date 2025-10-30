@@ -5,7 +5,7 @@ part 'ticket.freezed.dart';
 part 'ticket.g.dart';
 
 @freezed
-class Ticket with _$Ticket {
+abstract class Ticket with _$Ticket {
   const factory Ticket({
     required int id,
     required String code,

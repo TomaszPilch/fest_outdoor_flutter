@@ -13,13 +13,13 @@ class Feedback extends _$Feedback {
   }
 
   Future<void> addFeedback(String name, String content, int rating) async {
-    await dio
-        .post('https://cms.pzkogrodek.cz/api/fest-outdoor-feedbacks', data: {
-      'data': {
-        'name': name,
-        'content': content,
-        'rating': rating,
-      }
-    });
+    await dio.post('https://cms-new.pzkogrodek.cz/api/fest-outdoor-feedbacks',
+        data: {
+          'data': {
+            'name': name,
+            'content': content,
+            'rating': rating,
+          }
+        });
   }
 }

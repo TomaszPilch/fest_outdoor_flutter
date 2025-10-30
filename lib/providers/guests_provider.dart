@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:fest_outdoor/models/guest.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'guests_provider.g.dart';
@@ -10,16 +9,14 @@ final dio = Dio();
 @riverpod
 Future<List<Guest>> guests(Ref ref, String locale) async {
   final response = await dio.get(
-      'https://cms.pzkogrodek.cz/api/fest-outdoor-guests?populate=image&locale=$locale&filters[start][\$gt]=2024-11-21&filters[end][\$lt]=2024-11-30&sort=start:ASC');
+      'https://cms-new.pzkogrodek.cz/api/fest-outdoor-guests?populate=image&locale=$locale&filters[start][\$gt]=2025-11-21&filters[end][\$lt]=2025-11-30&sort=start:ASC');
 
   return (response.data['data'] as List).map<Guest>((e) {
-    if (e['attributes']?['image']?['data']?['attributes']?['formats']
-            ?['thumbnail'] !=
-        null) {
-      e['attributes']['image'] = e['attributes']?['image']?['data']
-          ?['attributes']?['formats']?['thumbnail'];
+    print(e['image']);
+    if (e['image']?['formats']?['thumbnail'] != null) {
+      e['image'] = e?['image']?['formats']?['thumbnail'];
     } else {
-      e['attributes']['image'] = null;
+      e['image'] = null;
     }
     return Guest.fromJson(e as Map<String, dynamic>);
   }).toList();

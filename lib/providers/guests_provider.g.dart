@@ -6,154 +6,79 @@ part of 'guests_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$guestsHash() => r'a851e3b6da6e4dfbf1a3626bc1532e1508bf8414';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
-
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
-
-/// See also [guests].
 @ProviderFor(guests)
-const guestsProvider = GuestsFamily();
+const guestsProvider = GuestsFamily._();
 
-/// See also [guests].
-class GuestsFamily extends Family<AsyncValue<List<Guest>>> {
-  /// See also [guests].
-  const GuestsFamily();
-
-  /// See also [guests].
-  GuestsProvider call(
-    String locale,
-  ) {
-    return GuestsProvider(
-      locale,
-    );
-  }
-
-  @override
-  GuestsProvider getProviderOverride(
-    covariant GuestsProvider provider,
-  ) {
-    return call(
-      provider.locale,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'guestsProvider';
-}
-
-/// See also [guests].
-class GuestsProvider extends AutoDisposeFutureProvider<List<Guest>> {
-  /// See also [guests].
-  GuestsProvider(
-    String locale,
-  ) : this._internal(
-          (ref) => guests(
-            ref as GuestsRef,
-            locale,
-          ),
-          from: guestsProvider,
+final class GuestsProvider extends $FunctionalProvider<AsyncValue<List<Guest>>,
+        List<Guest>, FutureOr<List<Guest>>>
+    with $FutureModifier<List<Guest>>, $FutureProvider<List<Guest>> {
+  const GuestsProvider._(
+      {required GuestsFamily super.from, required String super.argument})
+      : super(
+          retry: null,
           name: r'guestsProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$guestsHash,
-          dependencies: GuestsFamily._dependencies,
-          allTransitiveDependencies: GuestsFamily._allTransitiveDependencies,
-          locale: locale,
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
         );
 
-  GuestsProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.locale,
-  }) : super.internal();
-
-  final String locale;
+  @override
+  String debugGetCreateSourceHash() => _$guestsHash();
 
   @override
-  Override overrideWith(
-    FutureOr<List<Guest>> Function(GuestsRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: GuestsProvider._internal(
-        (ref) => create(ref as GuestsRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        locale: locale,
-      ),
-    );
+  String toString() {
+    return r'guestsProvider'
+        ''
+        '($argument)';
   }
 
+  @$internal
   @override
-  AutoDisposeFutureProviderElement<List<Guest>> createElement() {
-    return _GuestsProviderElement(this);
+  $FutureProviderElement<List<Guest>> $createElement(
+          $ProviderPointer pointer) =>
+      $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<List<Guest>> create(Ref ref) {
+    final argument = this.argument as String;
+    return guests(
+      ref,
+      argument,
+    );
   }
 
   @override
   bool operator ==(Object other) {
-    return other is GuestsProvider && other.locale == locale;
+    return other is GuestsProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, locale.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin GuestsRef on AutoDisposeFutureProviderRef<List<Guest>> {
-  /// The parameter `locale` of this provider.
-  String get locale;
-}
+String _$guestsHash() => r'434ea7e89feb94f6e8cd5110c9e44a90b95fec29';
 
-class _GuestsProviderElement
-    extends AutoDisposeFutureProviderElement<List<Guest>> with GuestsRef {
-  _GuestsProviderElement(super.provider);
+final class GuestsFamily extends $Family
+    with $FunctionalFamilyOverride<FutureOr<List<Guest>>, String> {
+  const GuestsFamily._()
+      : super(
+          retry: null,
+          name: r'guestsProvider',
+          dependencies: null,
+          $allTransitiveDependencies: null,
+          isAutoDispose: true,
+        );
+
+  GuestsProvider call(
+    String locale,
+  ) =>
+      GuestsProvider._(argument: locale, from: this);
 
   @override
-  String get locale => (origin as GuestsProvider).locale;
+  String toString() => r'guestsProvider';
 }
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

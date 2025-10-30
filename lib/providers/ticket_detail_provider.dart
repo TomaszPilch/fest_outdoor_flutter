@@ -16,7 +16,7 @@ class TicketDetail extends _$TicketDetail {
   Future<Ticket?> build(String code) async {
     final token = await ref.watch(tokenProvider.future);
     final response = await dio.get(
-        'https://cms.pzkogrodek.cz/api/fest-outdoor-tickets?filters[code][\$eq]=${code.toUpperCase()}',
+        'https://cms-new.pzkogrodek.cz/api/fest-outdoor-tickets?filters[code][\$eq]=${code.toUpperCase()}',
         options: Options(
           headers: {
             HttpHeaders.authorizationHeader: 'Bearer $token',
@@ -28,11 +28,11 @@ class TicketDetail extends _$TicketDetail {
     }
 
     final ticketDetail = response.data?['data']?[0];
-    ticketDetail['attributes']['id'] = ticketDetail['id'];
-    Ticket ticket = Ticket.fromJson(ticketDetail['attributes']);
+    ticketDetail['id'] = ticketDetail['id'];
+    Ticket ticket = Ticket.fromJson(ticketDetail);
 
     final responseLogs = await dio.get(
-        'https://cms.pzkogrodek.cz/api/fest-outdoor-tickets-logs?populate=fest_outdoor_ticket&filters[fest_outdoor_ticket][id][\$eq]=${ticket.id}',
+        'https://cms-new.pzkogrodek.cz/api/fest-outdoor-tickets-logs?populate=fest_outdoor_ticket&filters[fest_outdoor_ticket][id][\$eq]=${ticket.id}',
         options: Options(
           headers: {
             HttpHeaders.authorizationHeader: 'Bearer $token',
@@ -43,8 +43,8 @@ class TicketDetail extends _$TicketDetail {
     if (ticketLogs != null && ticketLogs.isNotEmpty) {
       ticket = ticket.copyWith(
           logs: ticketLogs.map<TicketLog>((log) {
-        log['attributes']['id'] = log['id'];
-        return TicketLog.fromJson(log['attributes']);
+        log['id'] = log['id'];
+        return TicketLog.fromJson(log);
       }).toList());
     }
 
@@ -59,13 +59,14 @@ class TicketDetail extends _$TicketDetail {
     }
 
     final token = await ref.watch(tokenProvider.future);
-    await dio.post('https://cms.pzkogrodek.cz/api/fest-outdoor-tickets-logs',
-        options: Options(
-          headers: {
-            HttpHeaders.authorizationHeader: 'Bearer $token',
-          },
-        ),
-        data: {
+    await dio
+        .post('https://cms-new.pzkogrodek.cz/api/fest-outdoor-tickets-logs',
+            options: Options(
+              headers: {
+                HttpHeaders.authorizationHeader: 'Bearer $token',
+              },
+            ),
+            data: {
           'data': {
             'fest_outdoor_ticket': previousState.id,
             'code': previousState.code,
