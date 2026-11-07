@@ -3,13 +3,18 @@ import 'package:flutter/material.dart';
 
 class ContentBlock extends StatelessWidget {
   final List<dynamic> content;
+  final EdgeInsetsGeometry padding;
 
-  const ContentBlock({super.key, required this.content});
+  const ContentBlock({
+    super.key,
+    required this.content,
+    this.padding = const EdgeInsets.symmetric(horizontal: 16),
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: padding,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: content.map((e) {
@@ -21,19 +26,17 @@ class ContentBlock extends StatelessWidget {
           }
           if (e['type'] == 'list') {
             return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4),
-                child: ContentBlock(content: e['children'] as List<dynamic>));
+              padding: const EdgeInsets.symmetric(vertical: 4),
+              child: ContentBlock(content: e['children'] as List<dynamic>),
+            );
           }
           if (e['type'] == 'list-item') {
             return Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const Icon(
-                  Icons.circle_outlined,
-                  size: 8,
-                ),
+                const Icon(Icons.circle_outlined, size: 8),
                 const SizedBox(width: 8),
-                Paragraph(content: e['children']),
+                Expanded(child: Paragraph(content: e['children'])),
               ],
             );
           }

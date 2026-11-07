@@ -10,20 +10,20 @@ part of 'guests_favorites_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(GuestsFavorites)
-const guestsFavoritesProvider = GuestsFavoritesProvider._();
+final guestsFavoritesProvider = GuestsFavoritesProvider._();
 
 final class GuestsFavoritesProvider
     extends $AsyncNotifierProvider<GuestsFavorites, List<int>> {
-  const GuestsFavoritesProvider._()
-      : super(
-          from: null,
-          argument: null,
-          retry: null,
-          name: r'guestsFavoritesProvider',
-          isAutoDispose: true,
-          dependencies: null,
-          $allTransitiveDependencies: null,
-        );
+  GuestsFavoritesProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'guestsFavoritesProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
 
   @override
   String debugGetCreateSourceHash() => _$guestsFavoritesHash();
@@ -39,14 +39,16 @@ abstract class _$GuestsFavorites extends $AsyncNotifier<List<int>> {
   FutureOr<List<int>> build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build();
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<AsyncValue<List<int>>, List<int>>;
-    final element = ref.element as $ClassProviderElement<
-        AnyNotifier<AsyncValue<List<int>>, List<int>>,
-        AsyncValue<List<int>>,
-        Object?,
-        Object?>;
-    element.handleValue(ref, created);
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<AsyncValue<List<int>>, List<int>>,
+              AsyncValue<List<int>>,
+              Object?,
+              Object?
+            >;
+    return element.handleCreate(ref, build);
   }
 }

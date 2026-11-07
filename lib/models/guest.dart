@@ -11,7 +11,8 @@ abstract class Guest with _$Guest {
 
   const factory Guest({
     required int id,
-    required String title,
+    @Default('') String name,
+    @Default('') String title,
     required DateTime start,
     required DateTime end,
     required String description,

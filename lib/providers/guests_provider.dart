@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:fest_outdoor/models/guest.dart';
+import 'package:fest_outdoor/utils/general.dart';
+import 'package:intl/intl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'guests_provider.g.dart';
@@ -8,8 +10,13 @@ final dio = Dio();
 
 @riverpod
 Future<List<Guest>> guests(Ref ref, String locale) async {
+  final firstDay = DateFormat('yyyy-MM-dd').format(conferenceDays.first);
+  final afterLastDay = DateFormat(
+    'yyyy-MM-dd',
+  ).format(conferenceDays.last.add(const Duration(days: 1)));
   final response = await dio.get(
-      'https://cms-new.pzkogrodek.cz/api/fest-outdoor-guests?populate=image&locale=$locale&filters[start][\$gt]=2025-11-21&filters[end][\$lt]=2025-11-30&sort=start:ASC');
+    'https://cms-new.pzkogrodek.cz/api/fest-outdoor-guests?populate=image&locale=$locale&filters[start][\$gte]=$firstDay&filters[end][\$lt]=$afterLastDay&sort=start:ASC',
+  );
 
   return (response.data['data'] as List).map<Guest>((e) {
     print(e['image']);
