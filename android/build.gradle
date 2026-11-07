@@ -9,8 +9,14 @@ rootProject.buildDir = "../build"
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
 }
-subprojects {
-    project.evaluationDependsOn(":app")
+subprojects { subproject ->
+    subproject.evaluationDependsOn(":app")
+    subproject.plugins.withId("com.android.library") {
+        subproject.extensions.getByName("androidComponents").finalizeDsl { android ->
+            // Native plugins otherwise use Flutter's default NDK instead of the app's.
+            android.ndkVersion = rootProject.project(":app").android.ndkVersion
+        }
+    }
 }
 
 tasks.register("clean", Delete) {

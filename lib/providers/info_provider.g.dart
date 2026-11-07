@@ -10,20 +10,26 @@ part of 'info_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(info)
-const infoProvider = InfoFamily._();
+final infoProvider = InfoFamily._();
 
-final class InfoProvider extends $FunctionalProvider<AsyncValue<List<dynamic>>,
-        List<dynamic>, FutureOr<List<dynamic>>>
+final class InfoProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<dynamic>>,
+          List<dynamic>,
+          FutureOr<List<dynamic>>
+        >
     with $FutureModifier<List<dynamic>>, $FutureProvider<List<dynamic>> {
-  const InfoProvider._(
-      {required InfoFamily super.from, required String super.argument})
-      : super(
-          retry: null,
-          name: r'infoProvider',
-          isAutoDispose: true,
-          dependencies: null,
-          $allTransitiveDependencies: null,
-        );
+  InfoProvider._({
+    required InfoFamily super.from,
+    required String super.argument,
+  }) : super(
+         retry: null,
+         name: r'infoProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
 
   @override
   String debugGetCreateSourceHash() => _$infoHash();
@@ -38,16 +44,13 @@ final class InfoProvider extends $FunctionalProvider<AsyncValue<List<dynamic>>,
   @$internal
   @override
   $FutureProviderElement<List<dynamic>> $createElement(
-          $ProviderPointer pointer) =>
-      $FutureProviderElement(pointer);
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
 
   @override
   FutureOr<List<dynamic>> create(Ref ref) {
     final argument = this.argument as String;
-    return info(
-      ref,
-      argument,
-    );
+    return info(ref, argument);
   }
 
   @override
@@ -61,22 +64,20 @@ final class InfoProvider extends $FunctionalProvider<AsyncValue<List<dynamic>>,
   }
 }
 
-String _$infoHash() => r'c8954f4ac0b40d3ca999f7c69368a75c3b499c5c';
+String _$infoHash() => r'ec0bc94e79416bfec095e068131f9f5b00de13d6';
 
 final class InfoFamily extends $Family
     with $FunctionalFamilyOverride<FutureOr<List<dynamic>>, String> {
-  const InfoFamily._()
-      : super(
-          retry: null,
-          name: r'infoProvider',
-          dependencies: null,
-          $allTransitiveDependencies: null,
-          isAutoDispose: true,
-        );
+  InfoFamily._()
+    : super(
+        retry: null,
+        name: r'infoProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
 
-  InfoProvider call(
-    String locale,
-  ) =>
+  InfoProvider call(String locale) =>
       InfoProvider._(argument: locale, from: this);
 
   @override

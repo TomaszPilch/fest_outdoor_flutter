@@ -10,20 +10,26 @@ part of 'guests_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(guests)
-const guestsProvider = GuestsFamily._();
+final guestsProvider = GuestsFamily._();
 
-final class GuestsProvider extends $FunctionalProvider<AsyncValue<List<Guest>>,
-        List<Guest>, FutureOr<List<Guest>>>
+final class GuestsProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<Guest>>,
+          List<Guest>,
+          FutureOr<List<Guest>>
+        >
     with $FutureModifier<List<Guest>>, $FutureProvider<List<Guest>> {
-  const GuestsProvider._(
-      {required GuestsFamily super.from, required String super.argument})
-      : super(
-          retry: null,
-          name: r'guestsProvider',
-          isAutoDispose: true,
-          dependencies: null,
-          $allTransitiveDependencies: null,
-        );
+  GuestsProvider._({
+    required GuestsFamily super.from,
+    required String super.argument,
+  }) : super(
+         retry: null,
+         name: r'guestsProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
 
   @override
   String debugGetCreateSourceHash() => _$guestsHash();
@@ -38,16 +44,13 @@ final class GuestsProvider extends $FunctionalProvider<AsyncValue<List<Guest>>,
   @$internal
   @override
   $FutureProviderElement<List<Guest>> $createElement(
-          $ProviderPointer pointer) =>
-      $FutureProviderElement(pointer);
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
 
   @override
   FutureOr<List<Guest>> create(Ref ref) {
     final argument = this.argument as String;
-    return guests(
-      ref,
-      argument,
-    );
+    return guests(ref, argument);
   }
 
   @override
@@ -61,22 +64,20 @@ final class GuestsProvider extends $FunctionalProvider<AsyncValue<List<Guest>>,
   }
 }
 
-String _$guestsHash() => r'434ea7e89feb94f6e8cd5110c9e44a90b95fec29';
+String _$guestsHash() => r'c4bf64a37e8e78273f1870cbaeda3df95c52c315';
 
 final class GuestsFamily extends $Family
     with $FunctionalFamilyOverride<FutureOr<List<Guest>>, String> {
-  const GuestsFamily._()
-      : super(
-          retry: null,
-          name: r'guestsProvider',
-          dependencies: null,
-          $allTransitiveDependencies: null,
-          isAutoDispose: true,
-        );
+  GuestsFamily._()
+    : super(
+        retry: null,
+        name: r'guestsProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
 
-  GuestsProvider call(
-    String locale,
-  ) =>
+  GuestsProvider call(String locale) =>
       GuestsProvider._(argument: locale, from: this);
 
   @override

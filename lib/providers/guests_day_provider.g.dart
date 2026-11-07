@@ -10,25 +10,26 @@ part of 'guests_day_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(guestsDay)
-const guestsDayProvider = GuestsDayFamily._();
+final guestsDayProvider = GuestsDayFamily._();
 
-final class GuestsDayProvider extends $FunctionalProvider<
-        AsyncValue<List<Guest>>, List<Guest>, FutureOr<List<Guest>>>
+final class GuestsDayProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<Guest>>,
+          List<Guest>,
+          FutureOr<List<Guest>>
+        >
     with $FutureModifier<List<Guest>>, $FutureProvider<List<Guest>> {
-  const GuestsDayProvider._(
-      {required GuestsDayFamily super.from,
-      required (
-        DateTime,
-        String,
-      )
-          super.argument})
-      : super(
-          retry: null,
-          name: r'guestsDayProvider',
-          isAutoDispose: true,
-          dependencies: null,
-          $allTransitiveDependencies: null,
-        );
+  GuestsDayProvider._({
+    required GuestsDayFamily super.from,
+    required (DateTime, String) super.argument,
+  }) : super(
+         retry: null,
+         name: r'guestsDayProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
 
   @override
   String debugGetCreateSourceHash() => _$guestsDayHash();
@@ -43,20 +44,13 @@ final class GuestsDayProvider extends $FunctionalProvider<
   @$internal
   @override
   $FutureProviderElement<List<Guest>> $createElement(
-          $ProviderPointer pointer) =>
-      $FutureProviderElement(pointer);
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
 
   @override
   FutureOr<List<Guest>> create(Ref ref) {
-    final argument = this.argument as (
-      DateTime,
-      String,
-    );
-    return guestsDay(
-      ref,
-      argument.$1,
-      argument.$2,
-    );
+    final argument = this.argument as (DateTime, String);
+    return guestsDay(ref, argument.$1, argument.$2);
   }
 
   @override
@@ -70,33 +64,21 @@ final class GuestsDayProvider extends $FunctionalProvider<
   }
 }
 
-String _$guestsDayHash() => r'390dfcb8fe1a113cbf371310cb13daaecce6b446';
+String _$guestsDayHash() => r'ff54b6b2d8eef792968bef7d8b5bd1562dbd9653';
 
 final class GuestsDayFamily extends $Family
-    with
-        $FunctionalFamilyOverride<
-            FutureOr<List<Guest>>,
-            (
-              DateTime,
-              String,
-            )> {
-  const GuestsDayFamily._()
-      : super(
-          retry: null,
-          name: r'guestsDayProvider',
-          dependencies: null,
-          $allTransitiveDependencies: null,
-          isAutoDispose: true,
-        );
+    with $FunctionalFamilyOverride<FutureOr<List<Guest>>, (DateTime, String)> {
+  GuestsDayFamily._()
+    : super(
+        retry: null,
+        name: r'guestsDayProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
 
-  GuestsDayProvider call(
-    DateTime day,
-    String locale,
-  ) =>
-      GuestsDayProvider._(argument: (
-        day,
-        locale,
-      ), from: this);
+  GuestsDayProvider call(DateTime day, String locale) =>
+      GuestsDayProvider._(argument: (day, locale), from: this);
 
   @override
   String toString() => r'guestsDayProvider';

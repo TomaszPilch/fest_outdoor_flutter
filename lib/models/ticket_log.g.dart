@@ -7,10 +7,10 @@ part of 'ticket_log.dart';
 // **************************************************************************
 
 _TicketLog _$TicketLogFromJson(Map<String, dynamic> json) => _TicketLog(
-      id: (json['id'] as num).toInt(),
-      code: json['code'] as String,
-      scanTime: DateTime.parse(json['scanTime'] as String),
-    );
+  id: (json['id'] as num).toInt(),
+  code: json['code'] as String,
+  scanTime: DateTime.parse(json['scanTime'] as String),
+);
 
 Map<String, dynamic> _$TicketLogToJson(_TicketLog instance) =>
     <String, dynamic>{
