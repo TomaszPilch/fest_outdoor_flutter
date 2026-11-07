@@ -50,6 +50,11 @@ void main() {
       expect(find.text('Kontrola vstupenek'), findsOneWidget);
       expect(find.text('Namířte kameru na QR kód na lístku'), findsOneWidget);
       expect(find.byType(TextFormField), findsNothing);
+      expect(tester.getSize(find.byType(CameraView)).width, 304);
+      expect(
+        tester.getSize(find.byType(CameraView)).height,
+        closeTo(405.3, 0.1),
+      );
       expect(
         tester.getTopLeft(find.byTooltip('Zpět')).dy,
         greaterThanOrEqualTo(32),
@@ -59,6 +64,7 @@ void main() {
         matching: find.byType(CustomPaint),
       );
       final initialPainter = tester.widget<CustomPaint>(frame).painter!;
+      expect(tester.getSize(frame).width, closeTo(273.6, 0.1));
       await tester.pump(const Duration(milliseconds: 600));
       expect(
         tester

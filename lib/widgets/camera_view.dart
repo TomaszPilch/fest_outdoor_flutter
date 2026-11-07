@@ -1,22 +1,22 @@
-import 'dart:io';
-
 import 'package:camera/camera.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
 
 class CameraView extends StatefulWidget {
-  const CameraView(
-      {super.key,
-      required this.customPaint,
-      required this.onImage,
-      this.onCameraFeedReady,
-      this.onDetectorViewModeChanged,
-      this.onCameraLensDirectionChanged,
-      this.initialCameraLensDirection = CameraLensDirection.back});
+  const CameraView({
+    super.key,
+    required this.customPaint,
+    required this.onImage,
+    this.onCameraFeedReady,
+    this.onDetectorViewModeChanged,
+    this.onCameraLensDirectionChanged,
+    this.initialCameraLensDirection = CameraLensDirection.back,
+  });
 
   final CustomPaint? customPaint;
-  final Function(InputImage inputImage) onImage;
+  final Future<void> Function(InputImage inputImage) onImage;
   final VoidCallback? onCameraFeedReady;
   final VoidCallback? onDetectorViewModeChanged;
   final Function(CameraLensDirection direction)? onCameraLensDirectionChanged;
@@ -33,6 +33,7 @@ class _CameraViewState extends State<CameraView> {
   double _currentZoomLevel = 1.0;
   double _minAvailableZoom = 1.0;
   double _maxAvailableZoom = 1.0;
+  bool _processingImage = false;
 
   @override
   void initState() {
@@ -76,10 +77,27 @@ class _CameraViewState extends State<CameraView> {
     return Stack(
       fit: StackFit.expand,
       children: <Widget>[
-        Center(
-          child: CameraPreview(
-            _controller!,
-            child: widget.customPaint,
+        ClipRect(
+          child: ValueListenableBuilder<CameraValue>(
+            valueListenable: _controller!,
+            builder: (context, value, child) {
+              final orientation =
+                  value.previewPauseOrientation ??
+                  value.lockedCaptureOrientation ??
+                  value.deviceOrientation;
+              final landscape =
+                  orientation == DeviceOrientation.landscapeLeft ||
+                  orientation == DeviceOrientation.landscapeRight;
+              final size = value.previewSize!;
+              return FittedBox(
+                fit: BoxFit.cover,
+                child: SizedBox(
+                  width: landscape ? size.width : size.height,
+                  height: landscape ? size.height : size.width,
+                  child: CameraPreview(_controller!, child: widget.customPaint),
+                ),
+              );
+            },
           ),
         ),
         _zoomControl(),
@@ -89,78 +107,80 @@ class _CameraViewState extends State<CameraView> {
   }
 
   Widget _toggleLight() => Positioned(
-        top: 16,
-        right: 16,
-        child: Container(
-          padding: const EdgeInsets.all(4),
-          decoration: BoxDecoration(
-            color: Colors.black54,
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          child: IconButton(
-            icon: Icon(Icons.flash_on,
-                color: _controller?.value.flashMode == FlashMode.torch
-                    ? Colors.green
-                    : Colors.white),
-            onPressed: () async {
-              await _controller?.setFlashMode(
-                _controller?.value.flashMode == FlashMode.torch
-                    ? FlashMode.off
-                    : FlashMode.torch,
-              );
-            },
-          ),
+    top: 16,
+    right: 16,
+    child: Container(
+      padding: const EdgeInsets.all(4),
+      decoration: BoxDecoration(
+        color: Colors.black54,
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      child: IconButton(
+        icon: Icon(
+          Icons.flash_on,
+          color: _controller?.value.flashMode == FlashMode.torch
+              ? Colors.green
+              : Colors.white,
         ),
-      );
+        onPressed: () async {
+          await _controller?.setFlashMode(
+            _controller?.value.flashMode == FlashMode.torch
+                ? FlashMode.off
+                : FlashMode.torch,
+          );
+        },
+      ),
+    ),
+  );
 
   Widget _zoomControl() => Positioned(
-        bottom: 16,
-        left: 0,
-        right: 0,
-        child: Align(
-          alignment: Alignment.bottomCenter,
-          child: SizedBox(
-            width: 250,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: Slider(
-                    value: _currentZoomLevel,
-                    min: _minAvailableZoom,
-                    max: _maxAvailableZoom,
-                    activeColor: Colors.white,
-                    inactiveColor: Colors.white30,
-                    onChanged: (value) async {
-                      setState(() {
-                        _currentZoomLevel = value;
-                      });
-                      await _controller?.setZoomLevel(value);
-                    },
-                  ),
-                ),
-                Container(
-                  width: 50,
-                  decoration: BoxDecoration(
-                    color: Colors.black54,
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Center(
-                      child: Text(
-                        '${_currentZoomLevel.toStringAsFixed(1)}x',
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+    bottom: 16,
+    left: 0,
+    right: 0,
+    child: Align(
+      alignment: Alignment.bottomCenter,
+      child: SizedBox(
+        width: 250,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+              child: Slider(
+                value: _currentZoomLevel,
+                min: _minAvailableZoom,
+                max: _maxAvailableZoom,
+                activeColor: Colors.white,
+                inactiveColor: Colors.white30,
+                onChanged: (value) async {
+                  setState(() {
+                    _currentZoomLevel = value;
+                  });
+                  await _controller?.setZoomLevel(value);
+                },
+              ),
             ),
-          ),
+            Container(
+              width: 50,
+              decoration: BoxDecoration(
+                color: Colors.black54,
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Center(
+                  child: Text(
+                    '${_currentZoomLevel.toStringAsFixed(1)}x',
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
-      );
+      ),
+    ),
+  );
 
   Future _startLiveFeed() async {
     final camera = _cameras[_cameraIndex];
@@ -169,7 +189,7 @@ class _CameraViewState extends State<CameraView> {
       // Set to ResolutionPreset.high. Do NOT set it to ResolutionPreset.max because for some phones does NOT work.
       ResolutionPreset.high,
       enableAudio: false,
-      imageFormatGroup: Platform.isAndroid
+      imageFormatGroup: defaultTargetPlatform == TargetPlatform.android
           ? ImageFormatGroup.nv21
           : ImageFormatGroup.bgra8888,
     );
@@ -202,10 +222,15 @@ class _CameraViewState extends State<CameraView> {
     _controller = null;
   }
 
-  void _processCameraImage(CameraImage image) {
-    final inputImage = _inputImageFromCameraImage(image);
-    if (inputImage == null) return;
-    widget.onImage(inputImage);
+  Future<void> _processCameraImage(CameraImage image) async {
+    if (!mounted || _processingImage) return;
+    _processingImage = true;
+    try {
+      final inputImage = _inputImageFromCameraImage(image);
+      if (inputImage != null) await widget.onImage(inputImage);
+    } finally {
+      _processingImage = false;
+    }
   }
 
   final _orientations = {
@@ -220,9 +245,9 @@ class _CameraViewState extends State<CameraView> {
     final camera = _cameras[_cameraIndex];
     final sensorOrientation = camera.sensorOrientation;
     InputImageRotation? rotation;
-    if (Platform.isIOS) {
+    if (defaultTargetPlatform == TargetPlatform.iOS) {
       rotation = InputImageRotationValue.fromRawValue(sensorOrientation);
-    } else if (Platform.isAndroid) {
+    } else if (defaultTargetPlatform == TargetPlatform.android) {
       var rotationCompensation =
           _orientations[_controller!.value.deviceOrientation];
       if (rotationCompensation == null) return null;
@@ -239,17 +264,19 @@ class _CameraViewState extends State<CameraView> {
 
     final format = InputImageFormatValue.fromRawValue(image.format.raw);
 
-    if (format == null) return null;
+    if (format == null ||
+        (defaultTargetPlatform == TargetPlatform.android &&
+            format != InputImageFormat.nv21) ||
+        (defaultTargetPlatform == TargetPlatform.iOS &&
+            format != InputImageFormat.bgra8888) ||
+        image.planes.length != 1) {
+      return null;
+    }
 
-    final plane = image.planes.first;
+    final plane = image.planes.single;
 
     return InputImage.fromBytes(
-      bytes: Uint8List.fromList(
-        image.planes.fold(
-            <int>[],
-            (List<int> previousValue, element) =>
-                previousValue..addAll(element.bytes)),
-      ),
+      bytes: plane.bytes,
       metadata: InputImageMetadata(
         size: Size(image.width.toDouble(), image.height.toDouble()),
         rotation: rotation, // used only in Android

@@ -133,14 +133,14 @@ class _TicketViewState extends State<TicketView>
                           Expanded(
                             child: Padding(
                               padding: const EdgeInsets.symmetric(
-                                horizontal: AppSpacing.xl,
+                                horizontal: AppSpacing.sm,
                                 vertical: AppSpacing.lg,
                               ),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  SizedBox(
-                                    height: 336,
+                                  AspectRatio(
+                                    aspectRatio: 3 / 4,
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(
                                         AppRadii.xl,
@@ -159,10 +159,8 @@ class _TicketViewState extends State<TicketView>
                                                         value,
                                           ),
                                           Center(
-                                            child: ConstrainedBox(
-                                              constraints: const BoxConstraints(
-                                                maxWidth: 256,
-                                              ),
+                                            child: FractionallySizedBox(
+                                              widthFactor: 0.9,
                                               child: AspectRatio(
                                                 aspectRatio: 1,
                                                 child: IgnorePointer(
